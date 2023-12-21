@@ -15,7 +15,8 @@ Before running the application, make sure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/hotelbot-flask.git
+   git clone https://github.com/Zeros2112/hotel_assistant_langchain_chatbot.git
+
 
 2. Navigate to the project directory
    cd hotelbot-flask
