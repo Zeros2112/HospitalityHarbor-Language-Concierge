@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversational Agent</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <h1>Conversational Agent</h1>
+    <div id="chatContainer">
+      <div id="conversationPanel"></div>
+      <input id="userInput" type="text" placeholder="Enter text here…" />
+      <button id="chatButton">Chat!</button>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("chatButton")
+          .addEventListener("click", sendMessage);
+
+        function sendMessage() {
+          var userInput = document.getElementById("userInput").value;
+          fetch("/collect_messages", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ user_input: userInput }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+              updateConversation(data);
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        }
+
+        function updateConversation(data) {
+          var conversationPanel = document.getElementById("conversationPanel");
+          var userMessage = document.createElement("div");
+          userMessage.className = "message user";
+          userMessage.textContent = "User: " + data.user_input;
+          conversationPanel.appendChild(userMessage);
+
+          var assistantMessage = document.createElement("div");
+          assistantMessage.className = "message assistant";
+          assistantMessage.textContent = "Assistant: " + data.response;
+          conversationPanel.appendChild(assistantMessage);
+
+          // Clear user input
+          document.getElementById("userInput").value = "";
+        }
+      });
+    </script>
+  </body>
+</html>
