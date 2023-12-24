@@ -1,4 +1,4 @@
-# HotelBot Flask Application
+# HospitalityHarbor Language Concierge
 
 Welcome to the HotelBot Flask Application! This Flask application uses OpenAI's GPT-3.5 language model to create a chatbot that simulates interaction with a hotel assistant.
 
