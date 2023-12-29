@@ -2,6 +2,9 @@
 
 Welcome to the HotelBot Flask Application! This Flask application uses OpenAI's GPT-3.5 language model to create a chatbot that simulates interaction with a hotel assistant.
 
+## Demo 
+- [Google drive](https://drive.google.com/drive/folders/1pP-1DwuHyH0nGQxRqI239iRB_57edQ3O?usp=sharing)
+
 ## Prerequisites
 
 Before running the application, make sure you have the following installed:
